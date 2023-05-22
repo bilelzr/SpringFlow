@@ -3,7 +3,7 @@ pipeline {
     stages {        
          stage('clone the project') {
                               steps {
-                                git branch: 'bilel', credentialsId: 'conn', url: 'https://github.com/ouniahmed/Devops-backend.git'
+                                git branch: 'bilel', credentialsId: 'conn', url: 'https://github.com/bilelzr/SpringFlow.git'
                               }
                 }
           stage('create package') {
