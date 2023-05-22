@@ -1,0 +1,22 @@
+scrape_configs:
+  - job_name: 'Spring Boot Application input'
+    metrics_path: '/SpringMVC/actuator/prometheus'
+    scrape_interval: 3s
+    static_configs:
+      - targets: ['localhost:8089']
+        labels:
+          application: 'Spring Server'
+          
+  - job_name: 'sonarqube'
+    metrics_path: '/api/prometheus/metrics'
+    static_configs:
+      - targets: ['127.0.0.1:9000']
+        labels: 
+          application : 'spring sonar metrics'
+    basic_auth:
+      username: $user
+      password: $password
+
+  - job_name: 'node'
+    static_configs:
+      - targets: ['localhost:9100']
